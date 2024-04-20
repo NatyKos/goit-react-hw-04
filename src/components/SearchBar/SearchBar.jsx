@@ -1,8 +1,10 @@
 import toast from 'react-hot-toast';
+
 export default function SearchBar({ onSubmit }) {
   const handleFormSubmit = event => {
     const notify = () =>
       toast.error('The search field is empty. Please enter a search value', {
+        duration: 1500,
         position: 'top-center',
         style: {
           backgroundColor: 'white',
@@ -19,14 +21,15 @@ export default function SearchBar({ onSubmit }) {
     }
     form.reset();
   };
+
   return (
     <header>
       <form onSubmit={handleFormSubmit}>
         <input
           name="search"
           type="text"
-          autocomplete="off"
-          autofocus
+          autoComplete="off"
+          autoFocus
           placeholder="Search images and photos"
         />
         <button type="submit">Search</button>
