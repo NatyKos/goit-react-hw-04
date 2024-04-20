@@ -16,5 +16,5 @@ export async function searchImages(query, page) {
       per_page: 15,
     },
   });
-  return response.data.results;
+  return response.data;
 }

@@ -12,6 +12,7 @@ export default function App() {
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
   const [searchImg, setSearchImg] = useState('');
+  const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(false);
 
   const handleSearch = async value => {
     setImages([]);
@@ -19,15 +20,17 @@ export default function App() {
     setSearchImg(value);
   };
   useEffect(() => {
-    if (searchImg === '') {
+    if (!searchImg) {
       return;
     }
     async function getImages() {
       try {
         setLoading(true);
         const data = await searchImages(searchImg, page);
+        const totalPages = data.total_pages;
+        setShowLoadMoreBtn(totalPages && totalPages !== page);
         setImages(prev => {
-          return [...prev, ...data];
+          return [...prev, ...data.results];
         });
       } catch (error) {
         setError(true);
@@ -48,7 +51,7 @@ export default function App() {
       {images.length > 0 && <ImageGallery images={images} />}
       {loading && <Loader />}
       {error && <ErrorMessage />}
-      {images.length > 0 && page >= 1 && <LoadMoreBtn onClick={counterPage} />}
+      {showLoadMoreBtn && <LoadMoreBtn onClick={counterPage} />}
     </>
   );
 }
