@@ -5,6 +5,7 @@ import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import Loader from '../Loader/Loader';
 import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
+import ImageModal from '../ImageModal/ImageModal';
 
 export default function App() {
   const [images, setImages] = useState([]);
@@ -13,6 +14,8 @@ export default function App() {
   const [page, setPage] = useState(1);
   const [searchImg, setSearchImg] = useState('');
   const [showLoadMoreBtn, setShowLoadMoreBtn] = useState(false);
+  const [modal, setModal] = useState({});
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleSearch = async value => {
     setImages([]);
@@ -45,10 +48,28 @@ export default function App() {
     setPage(page + 1);
   };
 
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
   return (
     <>
+      <ImageModal
+        state={modalIsOpen}
+        img={modal}
+        openModal={openModal}
+        closeModal={closeModal}
+      />
       <SearchBar onSubmit={handleSearch} />
-      {images.length > 0 && <ImageGallery images={images} />}
+      {images.length > 0 && (
+        <ImageGallery
+          images={images}
+          openModal={openModal}
+          changeImage={setModal}
+        />
+      )}
       {loading && <Loader />}
       {error && <ErrorMessage />}
       {showLoadMoreBtn && <LoadMoreBtn onClick={counterPage} />}
