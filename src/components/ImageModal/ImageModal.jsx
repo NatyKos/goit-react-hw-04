@@ -15,7 +15,7 @@ export default function ImageModal({ state, closeModal, img }) {
   return (
     <div>
       <Modal isOpen={state} onRequestClose={closeModal} style={customStyles}>
-        <button onClick={closeModal}>close</button>
+        <button onClick={closeModal}>✕</button>
         <img src={img.img} alt={img.alt} width="450px" />
       </Modal>
     </div>
