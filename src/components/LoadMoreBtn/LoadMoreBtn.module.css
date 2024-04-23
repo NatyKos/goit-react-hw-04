@@ -7,6 +7,10 @@
   border: none;
   color: rgb(166, 245, 157);
 }
+.loadMoreBtn:hover {
+  background-color: rgb(5, 45, 1);
+  color: a;
+}
 .btnContainer {
   padding-bottom: 10px;
 }
