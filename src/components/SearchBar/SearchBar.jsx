@@ -10,7 +10,7 @@ export default function SearchBar({ onSubmit }) {
         position: 'top-center',
         style: {
           backgroundColor: 'white',
-          color: 'green',
+          color: 'darkgreen',
         },
       });
     event.preventDefault();

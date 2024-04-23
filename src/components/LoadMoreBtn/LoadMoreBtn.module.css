@@ -1,0 +1,12 @@
+.loadMoreBtn {
+  display: flex;
+  margin: 10px auto;
+  background-color: rgb(10, 87, 3);
+  height: 40px;
+  width: 120px;
+  border: none;
+  color: rgb(166, 245, 157);
+}
+.btnContainer {
+  padding-bottom: 10px;
+}
