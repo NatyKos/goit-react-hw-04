@@ -1,5 +1,6 @@
 import toast from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast';
+import css from './SearchBar.module.css';
 
 export default function SearchBar({ onSubmit }) {
   const handleFormSubmit = event => {
@@ -24,7 +25,7 @@ export default function SearchBar({ onSubmit }) {
   };
 
   return (
-    <header>
+    <header className={css.searcForm}>
       <Toaster />
       <form onSubmit={handleFormSubmit}>
         <input
