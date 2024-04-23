@@ -29,6 +29,7 @@ export default function App() {
     async function getImages() {
       try {
         setLoading(true);
+        setShowLoadMoreBtn(false);
         const data = await searchImages(searchImg, page);
         const totalPages = data.total_pages;
         setShowLoadMoreBtn(totalPages && totalPages !== page);

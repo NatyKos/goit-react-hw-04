@@ -17,6 +17,9 @@
   border: none;
   color: rgb(166, 245, 157);
 }
+.btnSearch:hover {
+  background-color: rgb(5, 45, 1);
+}
 .searchInput {
   width: 320px;
   height: 30px;
@@ -25,6 +28,11 @@
   border: none;
   background-color: rgb(166, 245, 157);
   border-radius: 8px;
+  color: rgb(6, 48, 2);
+}
+.searchInput:hover {
+  outline: none;
+  border: 1px solid rgb(6, 48, 2);
 }
 body {
   background-color: rgb(196, 241, 163);

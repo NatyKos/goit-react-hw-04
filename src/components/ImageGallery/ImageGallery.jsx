@@ -1,7 +1,9 @@
 import ImageCard from '../ImageCard/ImageCard';
+import css from './ImageGallery.module.css';
+
 export default function imageGallery({ images, openModal, changeImage }) {
   return (
-    <ul>
+    <ul className={css.gallery}>
       {images.map(({ id, urls, alt_description }) => (
         <li
           key={id}
