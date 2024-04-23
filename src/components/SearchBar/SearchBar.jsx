@@ -25,17 +25,20 @@ export default function SearchBar({ onSubmit }) {
   };
 
   return (
-    <header className={css.searcForm}>
+    <header className={css.header}>
       <Toaster />
-      <form onSubmit={handleFormSubmit}>
+      <form className={css.searchForm} onSubmit={handleFormSubmit}>
         <input
+          className={css.searchInput}
           name="search"
           type="text"
           autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
         />
-        <button type="submit">Search</button>
+        <button className={css.btnSearch} type="submit">
+          Search
+        </button>
       </form>
     </header>
   );
